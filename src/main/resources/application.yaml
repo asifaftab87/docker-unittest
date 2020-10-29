@@ -1,12 +1,15 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/interview
-    username: candidate
-    password: java
+    username: postgres
+    password: root
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        jdbc:
-          lob:
-            non_contextual_creation: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+reserve:
+  words: 'admin,administrator,root'

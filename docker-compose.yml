@@ -4,9 +4,10 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD=java
-      - POSTGRES_USER=candidate
-    ports:
-      - "5432:5432"
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+      POSTGRES_DB: interview
     volumes:
-      - ./src/sql/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql
+      - ./src/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 5432:5432

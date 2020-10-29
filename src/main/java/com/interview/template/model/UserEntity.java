@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,9 +30,13 @@ public class UserEntity {
 	@SequenceGenerator(name = "user_id_generator", sequenceName = "user_id_seq")
 	private Long id;
 
+	@NotNull
+	@NotBlank
 	@Column(name = "username")
 	private String username;
 
+	@Email
+	@NotNull
 	@Column(name = "email")
 	private String email;
 
